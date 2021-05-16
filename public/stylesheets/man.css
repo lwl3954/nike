@@ -1,0 +1,155 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+p{
+	margin: 0px;
+}
+.navbar-default{
+	background-color: #fff;
+	border-color: #fff;
+}
+.navbar-default .navbar-nav>.active>a{
+	background-color: #fff;
+	border-bottom: 3px solid red;
+	
+}
+.navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+	
+	background-color: #fbfbfb;
+}
+.nav li:hover{
+	background-color: #fbfbfb;
+}
+
+.navbar-brand{
+	padding: 0px 15px;
+}
+.carousel{
+	background-color: #f5f5f5;
+	line-height: 50px;
+}
+img{
+	width: 100%;
+}
+button{
+	background-color: #000;
+	color: #fff;
+	border-radius: 50px;
+	border:1px solid #000;
+	padding: 1% 3%;
+}
+button a{
+	color: #fff;
+	text-decoration: none;
+}
+button a:hover{
+  text-decoration: none;
+}
+
+ button:hover{
+	background-color: rgba(255,255,255,.5);
+	color: #000;
+
+}
+
+.tab1 button,.tab2 button{
+   margin: 10px 0;
+}
+.tab2{
+	margin: 20px 0;
+}
+.tab2{
+	margin-bottom: 30px;
+}
+.tab2>.container>.col-md-12>.col-md-12,.tab2>.container>.col-md-12>.col-md-12>.col-md-6{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.tab2_box{
+	position: relative;
+
+}
+.tab2_box button{
+	position: absolute;
+	bottom: 10px;
+	right: 30px;
+
+}
+
+
+.tab3>.container>.col-md-12>.col-md-12,.tab3>.container>.col-md-12>.col-md-12>.col-md-3{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.tab3 img{
+	width: 100%;
+}
+.tab3 button{
+	position: absolute;
+	bottom: 10px;
+	left: 30px;
+	background-color: #fff;
+	color: #000;
+	border-color: #fff;
+}
+.tab3 button:hover{
+	background-color: rgba(255,255,255,.6);
+	border-color: rgba(255,255,255,.6);
+}
+.tab3{
+	margin: 20px 0;
+}
+.tab4{
+	line-height: 30px;
+	color: #aba7a7;
+	margin: 5% 0;
+	height: 150px;
+}
+.tab4 ul{
+	list-style: none;
+}
+.tab4 ul li:hover{
+	cursor: pointer;
+}
+
+
+footer{
+	background-color: #000;
+	color: #fff;
+    padding: 30px;
+    line-height: 30px;
+    color: #aba7a7;
+}
+footer ul{
+	list-style: none;
+	
+}
+.footer_right ul{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+.footer_right ul li{
+	flex: 1;
+	font-size: 14px;
+}
+footer ul li:hover{
+	cursor: pointer;
+}
+.fa_font i{
+   background-color: #ccccccad;
+   border-radius: 50%;
+   height: 30px;
+   width: 30px;
+   text-align: center;
+   line-height: 30px;
+   color: #000;
+   margin-right: 20px;
+}
+.color_black{
+	color: #fff;
+}
+.color_hei{
+	color: #000;
+}
