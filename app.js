@@ -20,6 +20,8 @@ var shoppingRouter = require('./routes/shopping');
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
 var carRouter = require('./routes/car');
+var houtaiRouter = require('./routes/houtai');
+var updateRouter = require('./routes/update');
 
 var app = express();
 
@@ -46,6 +48,8 @@ app.use('/man', manRouter);
 app.use('/woman', womanRouter);
 app.use('/shopping', shoppingRouter);
 app.use('/car',carRouter);
+app.use('/houtai',houtaiRouter);
+app.use('/update',updateRouter);
 
 
 
@@ -92,6 +96,10 @@ app.post("/reg",(req,res)=>{
   console.log(account)
   const pwd=req.body.pwd;
   console.log(pwd)
+  const name=req.body.name;
+  console.log(name)
+  const address=req.body.address;
+  console.log(address)
   let sql="select * from tab_user where account=?"
   let sqlArr=[account]
   let callBack=(err,data1)=>{
@@ -108,8 +116,8 @@ app.post("/reg",(req,res)=>{
           })
           return;
       }else{
-          let sql ="insert into tab_user set account=?,pwd=?";
-          let sqlArr=[account,pwd]
+          let sql ="insert into tab_user set account=?,pwd=?,name=?,address=?";
+          let sqlArr=[account,pwd,name,address]
           let callBack=(err,data)=>{
               if(err){
                   console.log(err)

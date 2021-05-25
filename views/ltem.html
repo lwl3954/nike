@@ -88,63 +88,66 @@
 				<div class="col-md-3">
 					<ul>
 						<li>休闲</li>
-						<li>Jordan</li>
+						<!-- <li>Jordan</li> -->
 						<li>跑步</li>
 						<li>篮球</li>
-						<li>足球</li>
+						<!-- <li>足球</li>
 						<li>训练/健身</li>
 						<li>滑板</li>
 						<li>高尔夫</li>
 						<li>网球</li>
 						<li>田径</li>
-						<li>步行</li>
+						<li>步行</li> -->
 					</ul>
 					<hr/>
 				    <p>性别</p>
 				    <p><input type="checkbox" name="">男子</p>
 				    <p><input type="checkbox" name="">女子</p>
-				    <p><input type="checkbox" name="">男子</p>
+				    <!-- <p><input type="checkbox" name="">男子</p> -->
 				    <hr/>
 				    <p>尺码</p>
-				    	<button>35.5</button>
+				    	<!-- <button>35.5</button>
 				    	<button>36</button>
 				    	<button>36.5</button>
 				    	<button>37</button>
 				    	<button>37.5</button>
 				    	<button>38</button>
-				    	<button>38.5</button>
+				    	<button>38.5</button> -->
 				    	<button>39</button>
-				    	<button>39.5</button>
+				    	<!-- <button>39.5</button> -->
 				    	<button>40</button>
-				    	<button>40.5</button>
+				    	<!-- <button>40.5</button> -->
 				    	<button>41</button>
-				    	<button>41.5</button>
+				    	<!-- <button>41.5</button> -->
 				    	<button>42</button>
-				    	<button>42.5</button>
+				    	<!-- <button>42.5</button> -->
 				    	<button>43</button>
-				    	<button>43.5</button>
-				     <hr/>
+				    	<!-- <button>43.5</button> -->
+				     <!-- <hr/>
 				    <p>适宜装备</p>
 				    <p><input type="checkbox" name="">热天</p>
 				    <p><input type="checkbox" name="">潮湿天气状况</p>
 				    <p><input type="checkbox" name="">冷天</p>
-				    <hr/>
-				     <p>运动员</p>
+				    <hr/> -->
+				     <!-- <p>运动员</p>
 				    <p><input type="checkbox" name="">勒布朗詹姆斯</p>
 				    <p><input type="checkbox" name="">凯文:杜兰特</p>
 				    <p><input type="checkbox" name="">凯里欧文</p>
-				    <hr/>
-				     <p>更多</p>
+				    <hr/> -->
+				     <!-- <p>更多</p> -->
 				</div>
 				<div class="col-md-9">
+					<% if (datas.length) { %>
+						<% datas.forEach(function(person){ %>
 					<div class="col-md-4">
-						<img src="/images/item05.png">
-						<p><a href="/shopping">Kvrie 7 EP</a></p>
-						<p><span>男子篮球鞋</span><br/><span>1种颜色
-						</span></p>
-						<p>￥999</p>
+						<img src="<%= person.sp_tp%>"">
+						<p><a href="/shopping"><%= person.sp_name%></a></p>
+						<p><span><%= person.sp_ks%></span></p>
+						<p><%= person.sp_jg%></p>
 					</div>
-					<div class="col-md-4">
+					<% }) %>
+                        <% } %>  
+					<!-- <div class="col-md-4">
                         <img src="/images/item05.png">
                         <p>Kvrie 7 EP</p>
 						<p><span>男子篮球鞋</span><br/><span>1种颜色
@@ -241,7 +244,7 @@
 						<p><span>男子篮球鞋</span><br/><span>1种颜色
 						</span></p>
 						<p>￥999</p>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-var mysql=require("mysql")
+var mysql=require("mysql");
 
 module.exports={
     config:{
@@ -18,5 +18,15 @@ module.exports={
             conn.release();
             
         })
+    },
+    query:function(sql, callback) {
+        let pool1 = mysql.createPool(this.config)
+        pool1.getConnection(function (err, connection) {
+            connection.query(sql, function (err, rows) {
+                callback(err, rows);
+                connection.release();//释放链接
+            });
+        });
     }
 }
+

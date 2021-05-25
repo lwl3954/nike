@@ -88,6 +88,16 @@
 					<label for="exampleInputPassword1">Password</label>
 					<input type="password" class="form-control" name="psw" id="pwd" placeholder="Password">
 				</div>
+
+				<div class="form-group">
+					<label for="exampleInputPassword1">Name</label>
+					<input type="name" class="form-control" name="name" id="name" placeholder="Name">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputPassword1">Address</label>
+					<input type="name" class="form-control" name="address" id="address" placeholder="Address">
+				</div>
 				
 				<button type="button" id="login" class="btn btn-primary"  data-dismiss="modal">submit</button>
 			<!-- </form>		 -->
@@ -144,17 +154,23 @@
 	<script type="text/javascript">
 		let account=$("#account")
 		let pwd=$("#pwd")
+		let name=$("#name")
+		let address=$("#address")
 		$("#login").click(function(){
 			console.log("开始")
-			if(account.val().length==0||pwd.val().length==0){
-				alert("用户或密码不能为空")
+			if(account.val().length==0||pwd.val().length==0||name.val().length==0||address.val().length==0){
+				alert("内容不能为空")
 				return;
 			}
 			var getAccount=account.val()
 			var getPwd=pwd.val()
+			var getName=name.val()
+			var getAddress=address.val()
 			var data={
 				"account":getAccount,
-				"pwd":getPwd
+				"pwd":getPwd,
+				"name":getName,
+				"address":getAddress
 			}
 			console.log(data)
 			$.ajax({
