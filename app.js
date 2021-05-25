@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs');
 var session = require('express-session');
-var formidable = require("formidable");
 var bodyParser=require("body-parser");
 const cors=require("cors");
 var db = require("./util/configDb");
@@ -15,7 +14,6 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var ltemRouter = require('./routes/ltem');
 var manRouter = require('./routes/man');
-var womanRouter = require('./routes/woman');
 var shoppingRouter = require('./routes/shopping');
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
@@ -45,7 +43,6 @@ app.use('/login', loginRouter);
 app.use('/register',registerRouter);
 app.use('/ltem', ltemRouter);
 app.use('/man', manRouter);
-app.use('/woman', womanRouter);
 app.use('/shopping', shoppingRouter);
 app.use('/car',carRouter);
 app.use('/houtai',houtaiRouter);
@@ -64,13 +61,14 @@ app.use("/static",express.static(path.join(__dirname,"./views")))
 app.post("/login",(req,res)=>{
   console.log("服务端",req.body)
   const {account,pwd}=req.body;
-  let sql=`select * from tab_user where account=${account} and pwd=${pwd}`
+  let sql=`select * from tab_user where account=${account} and pwd='${pwd}'`
   console.log("sql",sql)
   let sqlObj=[]
   console.log("sqlObj",sqlObj)
   let callBack=function(err,data){
-      console.log("data:",data.length)
+      // console.log("data:")
       if(err){
+        console.log(err)
           console.log("失败")
           return
       }
@@ -98,8 +96,8 @@ app.post("/reg",(req,res)=>{
   console.log(pwd)
   const name=req.body.name;
   console.log(name)
-  const address=req.body.address;
-  console.log(address)
+  const phone=req.body.phone;
+  console.log(phone)
   let sql="select * from tab_user where account=?"
   let sqlArr=[account]
   let callBack=(err,data1)=>{
@@ -116,8 +114,8 @@ app.post("/reg",(req,res)=>{
           })
           return;
       }else{
-          let sql ="insert into tab_user set account=?,pwd=?,name=?,address=?";
-          let sqlArr=[account,pwd,name,address]
+          let sql ="insert into tab_user set account=?,pwd=?,name=?,phone=?";
+          let sqlArr=[account,pwd,name,phone]
           let callBack=(err,data)=>{
               if(err){
                   console.log(err)
@@ -128,7 +126,6 @@ app.post("/reg",(req,res)=>{
                   msg:"注册成功",
                   affectedRows:data.affectedRows
               })
-              // console.log(data)
               return;
           }
           db.dbConn(sql,sqlArr,callBack)

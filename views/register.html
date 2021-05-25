@@ -38,9 +38,7 @@
 					</form>
 					
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/man">男子 <span class="sr-only">(current)</span></a></li>
-						<li><a href="/woman">女子</a></li>
-						<li class="dropdown">
+						<li><a href="/man">男子 <span class="sr-only">(current)</span></a></li>						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">儿童 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">儿童01</a></li>
@@ -78,29 +76,27 @@
 	<!-- tab1 -->
 	<div class="tab1 ">
 		<div class="container">
-			<!-- <form action="http://localhost:3000/login" id="addForm"> -->
 				<div class="form-group">
-					<label for="exampleInputEmail1">Account</label>
-					<input type="name" class="form-control" name="account" id="account" placeholder="Account">
+					<label for="exampleInputEmail1">账号</label>
+					<input type="name" class="form-control" name="account" id="account" placeholder="请输入8-12位数字">
 				</div>
 				
 				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<input type="password" class="form-control" name="psw" id="pwd" placeholder="Password">
+					<label for="exampleInputPassword1">密码</label>
+					<input type="password" class="form-control" name="psw" id="pwd" placeholder="请输入6-12位数字字母">
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputPassword1">Name</label>
-					<input type="name" class="form-control" name="name" id="name" placeholder="Name">
+					<label for="exampleInputPassword1">用户名</label>
+					<input type="name" class="form-control" name="name" id="name" placeholder="请输入2-6个中文">
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputPassword1">Address</label>
-					<input type="name" class="form-control" name="address" id="address" placeholder="Address">
+					<label for="exampleInputPassword1">电话</label>
+					<input type="name" class="form-control" name="phone" id="phone" placeholder="请输入11位电话号码">
 				</div>
 				
 				<button type="button" id="login" class="btn btn-primary"  data-dismiss="modal">submit</button>
-			<!-- </form>		 -->
 		</div>
 	</div>
 	
@@ -149,28 +145,56 @@
 	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery-1.12.4.min.js"></script>
 
-
-
-	<script type="text/javascript">
+	<script type="text/javascript">	
 		let account=$("#account")
 		let pwd=$("#pwd")
 		let name=$("#name")
-		let address=$("#address")
+		let phone=$("#phone")
 		$("#login").click(function(){
 			console.log("开始")
-			if(account.val().length==0||pwd.val().length==0||name.val().length==0||address.val().length==0){
+			if(account.val().length==0||pwd.val().length==0||name.val().length==0||phone.val().length==0){
 				alert("内容不能为空")
 				return;
+			}	
+			//账号验证
+			var accountReg = /^[0-9]{8,12}$/;
+			if (!accountReg.test(account.val())) {
+				alert("账号格式错误");
+				return;
 			}
+
+			//密码验证
+			var reg = /^[\d\w]{6,12}$/;
+			if (!reg.test(pwd.val())) {
+				alert("密码格式错误");
+				return
+			}
+
+			//用户名验证
+			var nameReg = /^[\u4e00-\u9fa5]{2,6}$/;  //定义约束,要求输入2到6个中文
+            if (!nameReg.test(name.val())) { 
+                alert("用户名格式错误");
+                return;
+            }
+
+			//电话号码验证
+			var reg1 = /^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/;
+            if (!reg1.test(phone.val())) {
+                alert("电话号码格式错误");
+                return;
+            }
+
+			
+
 			var getAccount=account.val()
 			var getPwd=pwd.val()
 			var getName=name.val()
-			var getAddress=address.val()
+			var getPhone=phone.val()
 			var data={
 				"account":getAccount,
 				"pwd":getPwd,
 				"name":getName,
-				"address":getAddress
+				"phone":getPhone
 			}
 			console.log(data)
 			$.ajax({
@@ -191,9 +215,7 @@
 				}
 			})
 		})
-	</script>
-
-
+    </script>
 
 
 </body>

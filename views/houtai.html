@@ -154,7 +154,7 @@
                                         <i class="mdi mdi-account-multiple text-primary widget-icon"></i>
                                     </div> -->
                                     <h5 class="text-muted font-weight-normal mt-0">用户总数</h5>
-                                    <h3 class="mt-2"><%= person.id%></h3>
+                                    <h3 class="mt-2"><%= datas.length%></h3>
                                 </div>
                                 <div id="sparkline3"></div>
                             </div> <!-- end card-body-->
@@ -191,7 +191,7 @@
                                                 <th>用户ID</th>
                                                 <th>用户名</th>
                                                 <th>用户账号</th>
-                                                <th>用户常住地址</th>
+                                                <th>用户电话号</th>
                                                 <th>用户钱包金额</th>
                                                 <th>操作</th>
                                             </tr>
@@ -211,7 +211,7 @@
                                                         </p>
                                                     </td>
                                                     <td><%= person.account%></td>       
-                                                    <td><%= person.address%></td>        
+                                                    <td><%= person.phone%></td>        
                                                     <td><%= person.money%></td>
                                                     <td>
                                                         <div class="btn-group dropdown">

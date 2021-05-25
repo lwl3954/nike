@@ -2,11 +2,6 @@ let express = require('express');
 let router = express.Router();
 var db = require("../util/configDb.js");
 
-// router.get('/',(req,res) => {
-//     res.render('houtai');
-// });
-
-
 /**
  * 查询列表页
  */
@@ -52,9 +47,9 @@ router.post('/update', function (req, res) {
     var id = req.body.id;
     var name = req.body.name;
     var account = req.body.account;
-    var address = req.body.address;
+    var phone = req.body.phone;
     var money = req.body.money;
-    db.query("update tab_user set name='" + name + "',account='" + account + "',dizhi='" + address + "',money='" + money + "' where id=" + id, function (err, rows) {
+    db.query("update tab_user set name='" + name + "',account='" + account + "',phone='" + phone + "',money='" + money + "' where id=" + id, function (err, rows) {
         if (err) {
             res.send("修改失败了哈哈哈："+err)
             //res.end('修改失败：' + err);
@@ -68,17 +63,20 @@ router.post('/update', function (req, res) {
  */
  router.post('/search', function (req, res) {
     var account = req.body.sname;
-    var sql = "select * from tab_user";
-    // if (account) {
-        sql += " and account like '%" + account + "%' ";
-    // }
-    // if (age) {
+    // var sql = "select * from tab_user";
+    //     sql += " and account like '%" + account + "%' ";
 
-        // sql += " and age=" + age + " ";
-    // }
+    // var sql1 = "select * from tab_user";
+    //     sql1 += " and phone like '%" + account + "%' ";
 
-    sql = sql.replace("and","where");
-    db.query(sql, function (err, rows) {
+    var sql2 = "select * from tab_user";
+        sql2 += " and name like '%" + account + "%' ";
+
+    // sql = sql.replace("and","where");
+    // sql1 = sql1.replace("and","where");
+    sql2 = sql2.replace("and","where");
+
+    db.query((sql2), function (err, rows) {
         if (err) {
             res.end("查询失败：", err)
         } else {
@@ -87,9 +85,6 @@ router.post('/update', function (req, res) {
     });
 });
 
-/**
- * 用户总数
- */
 
 
 module.exports = router;
