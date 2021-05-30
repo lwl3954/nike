@@ -8,12 +8,12 @@ var session = require('express-session');
 var bodyParser=require("body-parser");
 const cors=require("cors");
 var db = require("./util/configDb");
+var crypto = require('crypto');
 var app = express();
 
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var ltemRouter = require('./routes/ltem');
-var manRouter = require('./routes/man');
 var shoppingRouter = require('./routes/shopping');
 var indexRouter = require('./routes/index');
 var registerRouter = require('./routes/register');
@@ -42,7 +42,6 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register',registerRouter);
 app.use('/ltem', ltemRouter);
-app.use('/man', manRouter);
 app.use('/shopping', shoppingRouter);
 app.use('/car',carRouter);
 app.use('/houtai',houtaiRouter);
@@ -60,8 +59,13 @@ app.use("/static",express.static(path.join(__dirname,"./views")))
 //登录验证
 app.post("/login",(req,res)=>{
   console.log("服务端",req.body)
-  const {account,pwd}=req.body;
-  let sql=`select * from tab_user where account=${account} and pwd='${pwd}'`
+  // const {account,pwd}=req.body;
+  var account = req.body.account;
+  var pwd = req.body.pwd;
+  var md5 = crypto.createHash('md5');
+  var newpwd = md5.update(pwd).digest('hex');
+  
+  let sql=`select * from tab_user where account=${account} and pwd='${newpwd}'`
   console.log("sql",sql)
   let sqlObj=[]
   console.log("sqlObj",sqlObj)
@@ -93,7 +97,9 @@ app.post("/reg",(req,res)=>{
   const account=req.body.account;
   console.log(account)
   const pwd=req.body.pwd;
-  console.log(pwd)
+  var md5 = crypto.createHash('md5');
+  var newpwd = md5.update(pwd).digest('hex');
+  console.log(newpwd)
   const name=req.body.name;
   console.log(name)
   const phone=req.body.phone;
@@ -115,7 +121,7 @@ app.post("/reg",(req,res)=>{
           return;
       }else{
           let sql ="insert into tab_user set account=?,pwd=?,name=?,phone=?";
-          let sqlArr=[account,pwd,name,phone]
+          let sqlArr=[account,newpwd,name,phone]
           let callBack=(err,data)=>{
               if(err){
                   console.log(err)
