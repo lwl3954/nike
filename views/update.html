@@ -5,14 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>后台数据库修改</title>
+    <style>
+    .input{
+	position:absolute; 
+	margin-left:15px;
+	padding-left:10px;
+	width:130px;
+	height:25px;
+	left:1px;
+	top:2px;
+}
+    </style>
 </head>
 <body>
     <form action="/houtai/update" method="post">
-        <input type="hidden" value="<%= datas[0].id %>" name="id">
-        用户名：<input type="text" name="name" value="<%= datas[0].name %>"><br>
-        用户账号：<input type="text" name="account" value="<%= datas[0].account %>"><br>
-        用户电话号：<input type="text" name="address" value="<%= datas[0].phone %>"><br>
-        用户钱包金额：<input type="text" name="money" value="<%= datas[0].money %>"><br>
+        <input type="hidden" value="<%= datas[0].sp_id %>" name="sp_id">
+        商品名:<input type="text" name="sp_name" value="<%= datas[0].sp_name %>"><br>
+        商品图片：<input type="text" name="sp_tp" value="<%= datas[0].sp_tp %>"><br>
+            <!-- <select class="form-control" id="spec_num0" name="spec_num" onchange="document.getElementById('input0').value=$('#spec_num0 option:selected').text()">
+            <option>篮球鞋</option>
+            <option>休闲鞋</option>
+            <option>跑步鞋</option>
+        </select>
+        <input id="input0" class="form-control selectInput" name="sp_ks" placeholder="请选择商品款式"/> -->
+        商品款式:   
+    <div style="position:relative;">
+        <select style="width:120px;" onchange="document.getElementById('input').value=this.value">
+        <option></option>
+        <option value="跑步鞋">跑步鞋</option>
+        <option value="休闲鞋">休闲鞋</option>
+        <option value="篮球鞋">篮球鞋</option>
+        </select>
+        <input id="input" name="sp_ks" style="display: none;">
+    </div>
+        商品价格：<input type="text" name="sp_jg" value="<%= datas[0].sp_jg %>"><br>
         <input type="submit" value="提交">
     </form>
 </body>

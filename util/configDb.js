@@ -11,7 +11,7 @@ module.exports={
         let pool=mysql.createPool(this.config)
         pool.getConnection((err,conn)=>{
             if(err){
-                console.log(err)
+                // console.log(err)
                 return;
             }
             conn.query(sql,sqlObj,callBack)
@@ -22,7 +22,7 @@ module.exports={
     query:function(sql, callback) {
         let pool1 = mysql.createPool(this.config)
         pool1.getConnection(function (err, connection) {
-            connection.query(sql, function (err, rows) {
+            connection.query(sql, function (err,rows) {
                 callback(err, rows);
                 connection.release();//释放链接
             });

@@ -13,19 +13,46 @@
         <!-- App css -->
         <link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="/stylesheets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="/stylesheets/css/app.min.css" rel="stylesheet" type="text/css" />
-
+        <link href="/stylesheets/css/app.min.css" rel="stylesheet" type="text/css" /> 
+        <style>
+            #tj{
+                width: 275px;
+                height: 175px;
+                border: 1px solid black;
+                background-color: rgb(247, 235, 218);
+                position: absolute;
+                top: 200px;
+                left: 450px;
+            }
+            #biaoti{
+                margin-left: 75px;
+                font-size: 24px;
+                color: black;
+            }
+            #biaoge{
+                margin-left: 10px;
+            }
+            #biaoge td{
+                color: black;
+            }
+            #tijiao{
+                margin-left: 60px;
+            }
+            #guanbi{
+                color: black;
+                margin-left: 40px;
+            }
+        </style>
     </head>
-
     <body>
-
+        
         <!-- Navigation Bar-->
         <header id="topnav">
             <nav class="navbar-custom">
-
+                
                 <div class="container-fluid">
                     <ul class="list-unstyled topbar-right-menu float-right mb-0">
-
+                        
                         <li class="dropdown notification-list">
                             <!-- Mobile menu toggle-->
                             <a class="navbar-toggle nav-link">
@@ -37,8 +64,8 @@
                             </a>
                             <!-- End mobile menu toggle-->
                         </li>
-
-
+                        
+                        
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src="/images/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
@@ -51,42 +78,39 @@
                                 <div class="dropdown-header noti-title">
                                     <h6 class="text-overflow m-0">欢迎 !</h6>
                                 </div>
-
+                                
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <span>我的账户</span>
                                 </a>
-
+                                
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <span>设置</span>
                                 </a>
-
+                                
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <span>锁定屏幕</span>
                                 </a>
-
+                                
                                 <div class="dropdown-divider"></div>
-
+                                
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <span>退出</span>
                                 </a>
-
+                                
                             </div>
                         </li>
-
+                        
                     </ul>
-
+                    
                     <ul class="list-inline menu-left mb-0">
                         <li class="float-left">
-                            <a href="index.html" class="logo">
+                            <a href="/index" class="logo">
                                 <span class="logo-lg">
                                     <img src="/images/images/logo.png" alt="" height="18">
-                                </span>
-                                <span class="logo-sm">
-                                    <img src="/images/images/logo-sm.png" alt="" height="28">
                                 </span>
                             </a>
                         </li>
@@ -101,10 +125,10 @@
             </nav>
         </header>
         <!-- End Navigation Bar-->
-
+        
         <div class="wrapper">
             <div class="container-fluid">
-
+                
                 <!-- start page title -->
                 <div class="row">
                     <div class="col-12">
@@ -114,7 +138,7 @@
                     </div>
                 </div>     
                 <!-- end page title --> 
-
+                
                 <div class="row">
                     <div class="col-xl-3 col-lg-6">
                         <div class="card widget-flat">
@@ -124,20 +148,17 @@
                                         <i class="mdi mdi-cart text-primary widget-icon"></i>
                                     </div> -->
                                     <h5 class="text-muted font-weight-normal mt-0">商品总数</h5>
-                                    <h3 class="mt-2">3,543</h3>
+                                    <h3 class="mt-2"><%= datas.length%></h3>
                                 </div>
                                 <div id="sparkline1"></div>
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
                     </div> <!-- end col-->
-
+                    
                     <div class="col-xl-3 col-lg-6">
                         <div class="card widget-flat">
                             <div class="card-body p-0">
                                 <div class="p-3 pb-0">
-                                    <!-- <div class="float-right">
-                                        <i class="mdi mdi-currency-usd text-danger widget-icon"></i>
-                                    </div> -->
                                     <h5 class="text-muted font-weight-normal mt-0">销售总数</h5>
                                     <h3 class="mt-2">21,287</h3>
                                 </div>
@@ -145,29 +166,11 @@
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
                     </div> <!-- end col-->
-
+                    
                     <div class="col-xl-3 col-lg-6">
                         <div class="card widget-flat">
                             <div class="card-body p-0">
                                 <div class="p-3 pb-0">
-                                    <!-- <div class="float-right">
-                                        <i class="mdi mdi-account-multiple text-primary widget-icon"></i>
-                                    </div> -->
-                                    <h5 class="text-muted font-weight-normal mt-0">用户总数</h5>
-                                    <h3 class="mt-2"><%= datas.length%></h3>
-                                </div>
-                                <div id="sparkline3"></div>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="card widget-flat">
-                            <div class="card-body p-0">
-                                <div class="p-3 pb-0">
-                                    <!-- <div class="float-right">
-                                        <i class="mdi mdi-eye-outline text-danger widget-icon"></i>
-                                    </div> -->
                                     <h5 class="text-muted font-weight-normal mt-0">销售额</h5>
                                     <h3 class="mt-2">74,315</h3>
                                 </div>
@@ -177,88 +180,264 @@
                     </div> <!-- end col-->
                 </div>
                 <!-- end row -->
-
+                
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">客户列表</h4>
-
+                                <span class="header-title">商品列表</span>
+                                <a onclick="tianjia()"><img width="15px" src="/images/tianjia.jpg"></a>
+                                
                                 <div class="table-responsive mt-3">
                                     <table class="table table-hover table-centered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>用户ID</th>
-                                                <th>用户名</th>
-                                                <th>用户账号</th>
-                                                <th>用户电话号</th>
-                                                <th>用户钱包金额</th>
+                                                <th>商品ID</th>
+                                                <th>商品图片</th>
+                                                <th>商品名</th>
+                                                <th>商品种类</th>
+                                                <th>商品价格</th>
                                                 <th>操作</th>
                                             </tr>
-                                        </thead>
-                                    
-                                    
-                                        <tbody>
+                                        </thead>           
+                                        <tbody id="ec_table">
                                             <% if (datas.length) { %>
                                                 <% datas.forEach(function(person){ %>
-                                                <tr>
-                                                    <td><b><%= person.id%></b></td>
-                                                    <td>
-                                                        <p class="mb-0 font-weight-bold">
-                                                            <a href="javascript: void(0);">
-                                                                <%= person.name%>
-                                                            </a>
-                                                        </p>
-                                                    </td>
-                                                    <td><%= person.account%></td>       
-                                                    <td><%= person.phone%></td>        
-                                                    <td><%= person.money%></td>
-                                                    <td>
-                                                        <div class="btn-group dropdown">
-                                                            <a href="javascript: void(0);" class="dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false">设置</a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="/houtai/toUpdate/<%= person.id %>">编辑</a>
-                                                                <a class="dropdown-item" href="/houtai/del/<%= person.id %>">删除</a>
+                                                    <tr>
+                                                        <td><b><%= person.sp_id%></b></td>
+                                                        <td><img width="150px" src="\images\<%= person.sp_tp%>"></td>       
+                                                        <td>
+                                                            <p class="mb-0 font-weight-bold">
+                                                                <a href="javascript: void(0);">
+                                                                    <%= person.sp_name%>
+                                                                </a>
+                                                            </p>
+                                                        </td>
+                                                        <td><%= person.sp_ks%></td>        
+                                                        <td>￥<%= person.sp_jg%></td>
+                                                        <td>
+                                                            <div class="btn-group dropdown">
+                                                                <a href="javascript: void(0);" class="dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false">设置</a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="/houtai/toUpdate/<%= person.sp_id %>">编辑</a>
+                                                                    <a class="dropdown-item" href="/houtai/del/<%= person.sp_id %>">删除</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <% }) %>
-                                            <% } %>   
-                                        </tbody>
-                                    </table>
-    
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                                    <% } %>  
+                                                </tbody>
+                                            </table>
+                                            <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
+                                                <span id="spanFirst">第一页</span>
+                                                <span id="spanPre">上一页</span>
+                                                <span id="spanNext">下一页</span>
+                                                <span id="spanLast">最后一页</span> 第
+                                                <span id="spanPageNum"></span>页/共
+                                                <span id="spanTotalPage"></span>页
+                                            </div> 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        
+                        <!-- 
+                            添加商品
+                         -->
+                        <div id="tj" style="display: none;">
+                            <div id="biaoti">添加商品</div>
+                            <form action="/houtai/add" method="POST">
+                                <table id="biaoge">
+                                    <tr>
+                                        <td>商品名：</td>
+                                        <td><input type="text" name="sp_name" placeholder="输入商品名"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>商品图片：</td>
+                                        <td><input type="text" name="sp_tp" placeholder="输入商品图片名"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>商品款式：</td>
+                                        <td><input type="radio" name="sp_ks" value="篮球鞋">篮球鞋
+                                            <input type="radio" name="sp_ks" value="休闲鞋">休闲鞋
+                                            <input type="radio" name="sp_ks" value="跑步鞋">跑步鞋
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>商品价格：</td>
+                                        <td><input type="text" name="sp_jg" placeholder="输入商品价格"></td>
+                                    </tr>
+                                </table>
+                                <input id="tijiao" type="submit" value="提交">
+                                <spon id="guanbi" onclick="guanbi()">关闭</spon>
+                            </form>
+                        </div>
+                    </div> <!-- end container -->
                 </div>
-                <!-- end row -->
-
+                <!-- end wrapper -->
                 
-            </div> <!-- end container -->
-        </div>
-        <!-- end wrapper -->
-
-
-        <!-- Footer Start -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        NIKE &copy; 2021 - tecms.net
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-md-right footer-links d-none d-sm-block">
-                            <a href="#">关于我们</a>
-                            <a href="#">帮助</a>
-                            <a href="#">联系我们</a>
+                
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                NIKE &copy; 2021 - tecms.net
+                                <div><a href="houtai/fanhui">返回前台</a></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </footer>
-        <!-- end Footer -->
+                </footer>
+                <!-- end Footer -->
+                
+
+
+
+        <!-- 
+        用户表翻页
+        -->
+        
+        <script>
+            //显示添加页
+            function tianjia(){
+                let d = document.getElementById("tj");
+                d.style.display = '';
+            }
+            //关闭添加
+            function guanbi() {
+                let d = document.getElementById("tj");
+                d.style.display = 'none';
+            }
+
+            //前后页
+            var theTable = document.getElementById("ec_table");
+            var totalPage = document.getElementById("spanTotalPage");
+            var pageNum = document.getElementById("spanPageNum");
+            var spanPre = document.getElementById("spanPre");
+            var spanNext = document.getElementById("spanNext");
+            var spanFirst = document.getElementById("spanFirst");
+            var spanLast = document.getElementById("spanLast");
+            var numberRowsInTable = theTable.rows.length;
+            var pageSize = 5;
+            var page = 1;
+            //下一页
+            function next() {
+                hideTable();
+                currentRow = pageSize * page;
+                maxRow = currentRow + pageSize;
+                if (maxRow > numberRowsInTable)
+                    maxRow = numberRowsInTable;
+                for ( var i = currentRow; i < maxRow; i++) {
+                    theTable.rows[i].style.display = '';//currentRow ~ maxRow 内显示出来
+                }
+                page++;
+                if (maxRow == numberRowsInTable) {
+                    nextText();
+                    lastText();
+                }
+                showPage();
+                preLink();
+                firstLink();
+            }
+            //上一页
+            function pre() {
+                hideTable();
+                page--;
+                currentRow = pageSize * page;
+                maxRow = currentRow - pageSize;
+                if (currentRow > numberRowsInTable)
+                    currentRow = numberRowsInTable;
+                for ( var i = maxRow; i < currentRow; i++) {
+                    theTable.rows[i].style.display = '';
+                }
+                if (maxRow == 0) {
+                    preText();
+                    firstText();
+                }
+                showPage();
+                nextLink();
+                lastLink();
+            }
+            //第一页
+            function first() {
+                hideTable();
+                page = 1;
+                for ( var i = 0; i < pageSize; i++) {
+                    theTable.rows[i].style.display = '';
+                }
+                showPage();
+                preText();
+                nextLink();
+                lastLink();
+            }
+            //最后一页
+            function last() {
+                hideTable();
+                page = pageCount();
+                currentRow = pageSize * (page - 1);
+                for ( var i = currentRow; i < numberRowsInTable; i++) {
+                    theTable.rows[i].style.display = '';
+                }
+                showPage();
+                preLink();
+                nextText();
+                firstLink();
+            }
+            function hideTable() {
+                for ( var i = 0; i < numberRowsInTable; i++) {
+                    theTable.rows[i].style.display = 'none';
+                }
+            }
+            function showPage() {
+                pageNum.innerHTML = page;
+            }
+            //总共页数
+            function pageCount() {
+                var count = 0;
+                if (numberRowsInTable % pageSize != 0)
+                    count = 1;
+                return parseInt(numberRowsInTable / pageSize) + count;
+            }
+    
+            //显示链接
+            function preLink() {
+                spanPre.innerHTML = "<a href='javascript:pre();'>上一页</a>";
+            }
+            function preText() {
+                spanPre.innerHTML = "上一页";
+            }
+            function nextLink() {
+                spanNext.innerHTML = "<a href='javascript:next();'>下一页</a>";
+            }
+            function nextText() {
+                spanNext.innerHTML = "下一页";
+            }
+            function firstLink() {
+                spanFirst.innerHTML = "<a href='javascript:first();'>第一页</a>";
+            }
+            function firstText() {
+                spanFirst.innerHTML = "第一页";
+            }
+            function lastLink() {
+                spanLast.innerHTML = "<a href='javascript:last();'>最后一页</a>";
+            }
+            function lastText() {
+                spanLast.innerHTML = "最后一页";
+            }
+            //隐藏表格
+            function hide() {
+                for ( var i = pageSize; i < numberRowsInTable; i++) {
+                    theTable.rows[i].style.display = 'none';
+                }
+                totalPage.innerHTML = pageCount();
+                pageNum.innerHTML = '1';
+                nextLink();
+                lastLink();
+            }
+            hide();
+        </script>
 
 
         <!-- App js -->
